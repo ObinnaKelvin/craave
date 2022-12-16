@@ -6,8 +6,10 @@ import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from '@fortaw
 import { DateRange } from 'react-date-range';
 import {useState} from 'react'
 import { format } from 'date-fns'//transform the dates to readable formats
+import { useNavigate } from "react-router-dom";
 
 const Header = ({type}) => {
+  const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
       {
@@ -23,10 +25,16 @@ const Header = ({type}) => {
     room: 1
   });     
 
+  const navigate = useNavigate()
+
   const handleOption = (name, operation) => {
     setOptions(prev => { return {
       ...prev, [name]: operation === "i" ? options[name] +1 : options[name]-1
     }})
+  }
+
+  const handleSearch = () => {
+      navigate("/hotels", { state: {destination, date, options}})
   }
     
   return (
@@ -69,7 +77,12 @@ const Header = ({type}) => {
                 <div className="headerSearch">
                   <div className="headerSearchItem">
                     <FontAwesomeIcon icon={faBed} className="headerIcon"/>
-                    <input type="text" placeholder="where are you going?" className="headerSearchInput"/>
+                    <input 
+                      type="text" 
+                      placeholder="where are you going?" 
+                      className="headerSearchInput"
+                      onChange={(e) => setDestination(()=> e.target.value)}
+                    />
                   </div>
                   <div className="headerSearchItem">
                     <FontAwesomeIcon icon={faCalendarDays} className="headerIcon"/>
@@ -84,6 +97,7 @@ const Header = ({type}) => {
                             moveRangeOnFirstSelection={false}
                             ranges={date}
                             className = "date"
+                            minDate={new Date()}
                           />
                       }
                   </div>
@@ -107,7 +121,6 @@ const Header = ({type}) => {
                               <span className="optionCounterNumber">{`${options.children}`}</span>
                               <button className="optionCounterButton" onClick={()=>handleOption("children", "i")}>+</button>                  
                             </div>
-
                           </div>
                           <div className="optionItem">
                             <span className="optionText">Room</span>
@@ -123,7 +136,7 @@ const Header = ({type}) => {
 
                   </div>
                   <div className="headerSearchItem">
-                    <button className="headerBtn">Search</button>
+                    <button className="headerBtn" onClick={handleSearch}>Search</button>
                   </div>
                 </div>
             </>    

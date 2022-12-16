@@ -12,6 +12,7 @@
     color: white;
     border-radius: 20px;
     overflow: hidden;
+    /* border: 1px solid red; */
 }
 .featuredImg {
     width: 300px;
@@ -21,5 +22,20 @@
 
 .featureTitles {
     position: absolute;
-    bottom: 20px;
+    bottom: 5px;
+    /* border-radius: 20px; */
+    padding: 15px;
+    /* background-color: black; */
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    /* opacity: 0.6; */
+}
+
+.featureTitles > h1 {
+    font-size: 14px;
+}
+
+.featureTitles > h2 {
+    font-size: 14px;
+    font-weight: 300;
 }
