@@ -4,7 +4,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from '@fortawesome/free-solid-svg-icons'
 import { DateRange } from 'react-date-range';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { format } from 'date-fns'//transform the dates to readable formats
 import { useNavigate } from "react-router-dom";
 
@@ -36,6 +36,17 @@ const Header = ({type}) => {
   const handleSearch = () => {
       navigate("/hotels", { state: {destination, date, options}})
   }
+
+  //We add a listener effect that activates 'false' which 
+  // invokes the 'inactive' property to the dropdowns
+  useEffect(() => { 
+      let listener = () => {
+        setOpenOptions(false);
+        setOpenDate(false);
+      }
+
+      document.addEventListener("mousedown", listener)
+  }, [])
     
   return (
     <div className="header">
@@ -91,21 +102,24 @@ const Header = ({type}) => {
                       className="headerSearchText">
                         {`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(date[0].endDate, "dd/MM/yyyy")}`}
                     </span>
-                      { openDate &&  <DateRange
-                            editableDateInputs={true}
-                            onChange={item => setDate([item.selection])}
-                            moveRangeOnFirstSelection={false}
-                            ranges={date}
-                            className = "date"
-                            minDate={new Date()}
-                          />
-                      }
+                      {/* { openDate &&   */}
+                          <div className={`date ${openDate? 'active': 'inactive'}`}>
+                            <DateRange
+                                editableDateInputs={true}
+                                onChange={item => setDate([item.selection])}
+                                moveRangeOnFirstSelection={false}
+                                ranges={date}
+                                // className = "date"
+                                minDate={new Date()}
+                            />
+                          </div>
+                      {/* } */}
                   </div>
                   <div className="headerSearchItem">
                     <FontAwesomeIcon icon={faPerson} className="headerIcon"/>
                     <span onClick={()=>setOpenOptions(!openOptions) } className="headerSearchText">{`${options.adult} adult . ${options.children} children . ${options.room} room`}</span>
-                      { openOptions &&
-                        <div className="options">
+                      {/* { openOptions && */}
+                        <div className={`options ${openOptions? 'active' : 'inactive'}`}>
                           <div className="optionItem">
                             <span className="optionText">Adult</span>
                             <div className="optionCounter">
@@ -132,7 +146,7 @@ const Header = ({type}) => {
 
                           </div>
                         </div>                
-                      }
+                      {/* } */}
 
                   </div>
                   <div className="headerSearchItem">

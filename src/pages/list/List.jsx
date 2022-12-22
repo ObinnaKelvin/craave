@@ -5,6 +5,7 @@ import Header from '../../components/header/Header.jsx';
 import { useLocation } from 'react-router-dom';
 import { format } from 'date-fns'//transform the dates to readable formats
 import { DateRange } from 'react-date-range';
+import SearchItem from '../../components/searchItem/SearchItem';
 
 const List = () => {
   
@@ -69,7 +70,9 @@ const List = () => {
             <button>Search</button>
           </div>
           <div className="listResult">
-            
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
           </div>
         </div>
       </div>
