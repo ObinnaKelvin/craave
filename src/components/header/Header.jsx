@@ -4,7 +4,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from '@fortawesome/free-solid-svg-icons'
 import { DateRange } from 'react-date-range';
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef } from 'react'
 import { format } from 'date-fns'//transform the dates to readable formats
 import { useNavigate } from "react-router-dom";
 
@@ -39,17 +39,26 @@ const Header = ({type}) => {
 
   //We add a listener effect that activates 'false' which 
   // invokes the 'inactive' property to the dropdowns
+  let menuRef = useRef();
   useEffect(() => { 
-      let listener = () => {
-        setOpenOptions(false);
-        setOpenDate(false);
+      let listener = (e) => {
+        if(!menuRef.current.contains(e.target)) {
+          setOpenOptions(false);
+          setOpenDate(false);
+          console.log(menuRef.current);          
+        }
+
       }
 
-      document.addEventListener("mousedown", listener)
+      document.addEventListener("mousedown", listener);
+
+      return () => {
+        document.removeEventListener("mousedown", listener);
+      }
   }, [])
     
   return (
-    <div className="header">
+    <div className="header" ref={menuRef}>
       <div className= {type === "list" ? "headerContainer listMode" : "headerContainer"}>
         <div className="headerList">
           <div className="headerListItem active">
