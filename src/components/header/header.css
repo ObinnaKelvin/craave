@@ -84,8 +84,23 @@
 
 .date {
     position: absolute;
+    margin-left: -55px;
     top: 50px;
     z-index: 2;
+}
+
+.date.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: 0.5s ease;
+}
+
+.date.inactive {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 0.5s ease;
 }
 
 .options {
@@ -97,6 +112,24 @@
     -webkit-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.4);
     box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.4);
     z-index: 2;
+}
+
+.options.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: 0.5s ease;
+}
+
+.options.inactive {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 0.5s ease;
+}
+
+.options:hover {
+    filter: brightness(1.2)
 }
 
 .optionItem {
