@@ -4,14 +4,8 @@ import Navbar from "../../components/navbar/Navbar"
 import MailList from "../../components/mailList/MailList"
 import Footer from "../../components/footer/Footer"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons"
+import { faCircleArrowLeft, faCircleArrowRight, faCircleXmark, faLocationDot } from "@fortawesome/free-solid-svg-icons"
 import { photos } from "./photos.jsx"
-// import paladio1 from "../../images/paladio_1.jpg"
-// import paladio2 from "../../images/paladio_2.jpg"
-// import paladio3 from "../../images/paladio_3.jpg"
-// import paladio4 from "../../images/paladio_4.jpg"
-// import paladio5 from "../../images/paladio_5.jpg"
-// import paladio6 from "../../images/paladio_6.jpg"
 import { useState } from "react"
 
 const Hotel = () => {
@@ -24,6 +18,18 @@ const Hotel = () => {
     setOpen(true)
   }
 
+  const handleMove = (direction) => {
+
+    let newSlideNumber
+    if (direction === "l") {
+      newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1
+    } else {
+      newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1
+    }
+
+    setSlideNumber(newSlideNumber)
+  }
+
   return (
     <div>
       <Navbar />
@@ -31,7 +37,12 @@ const Hotel = () => {
       <div className="hotelContainer">
         {  open && 
           <div className="slider">
-              blah! blah
+              <FontAwesomeIcon icon={faCircleXmark} className="close" onClick={()=> setOpen(false)}/>
+              <FontAwesomeIcon icon={faCircleArrowLeft} className="arrow" onClick={()=> handleMove("l")}/>
+              <div className="sliderWrapper">
+                <img src={photos[slideNumber].src} alt="" className="sliderImg" />
+              </div>
+              <FontAwesomeIcon icon={faCircleArrowRight} className="arrow" onClick={()=> handleMove("r")}/>
           </div>
         }
         <div className="hotelWrapper">
@@ -50,23 +61,15 @@ const Hotel = () => {
           <div className="hotelImages">
             {photos.map((photo, i)=> ( 
               <div className="hotelImgWrapper">
-                <img onClick={handleOpen} src={photo.src} alt={photo.alt} key={i} className="hotelImg" />
+                <img onClick={() => handleOpen(i)} src={photo.src} alt={photo.alt} key={i} className="hotelImg" />
               </div>
             ))}
-              {/* <div className="hotelImgWrapper">
-                <img  src={paladio1} alt="" className="hotelImg" />
-                <img src={paladio2} alt="" className="hotelImg" />
-                <img src={paladio3} alt="" className="hotelImg" />
-                <img src={paladio4} alt="" className="hotelImg" />
-                <img src={paladio5} alt="" className="hotelImg" />
-                <img src={paladio6} alt="" className="hotelImg" />
-              </div> */}
           </div>
           <div className="hotelDetails">
             <div className="hotelDetailsTexts">
               <h1 className="hotelTitle">Stay in the heart of Ikeja</h1>
               <p className="hotelDesc">
-                Located a 5-minute walk from St. Florian's Gate in Krakow, Tower
+                Located a 5-minute walk from St. Florian's Gate in Ikeja, Tower
                 Street Apartments has accomodations with air conditioning and free Wifi.
               </p>
             </div>
