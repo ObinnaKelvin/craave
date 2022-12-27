@@ -2,11 +2,12 @@ import "./header.css";
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from '@fortawesome/free-solid-svg-icons'
+import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi, faTree } from '@fortawesome/free-solid-svg-icons'
 import { DateRange } from 'react-date-range';
 import {useState, useEffect, useRef } from 'react'
 import { format } from 'date-fns'//transform the dates to readable formats
 import { useNavigate } from "react-router-dom";
+import Navbar from "../navbar/Navbar";
 
 const Header = ({type}) => {
   const [destination, setDestination] = useState("");
@@ -59,6 +60,7 @@ const Header = ({type}) => {
     
   return (
     <div className="header" ref={menuRef}>
+      <Navbar />
       <div className= {type === "list" ? "headerContainer listMode" : "headerContainer"}>
         <div className="headerList">
           <div className="headerListItem active">
@@ -74,17 +76,17 @@ const Header = ({type}) => {
           <span>Car Rentals</span>
           </div>
           <div className="headerListItem">
-          <FontAwesomeIcon icon={faBed} />
+          <FontAwesomeIcon icon={faTree} />
           <span>Attractions</span>
           </div>
           <div className="headerListItem">
           <FontAwesomeIcon icon={faTaxi} />
           <span>Airport Taxis</span>
           </div>
-          <div className="headerListItem">
+          {/* <div className="headerListItem">
           <FontAwesomeIcon icon={faBed} />
           <span>Stays</span>
-          </div>
+          </div> */}
         </div>.
         { type !== "list" &&
             <>
@@ -93,7 +95,7 @@ const Header = ({type}) => {
                   Get rewarded for your travels - unlock instant savings of 10% or more with a 
                   free Craave account
                 </p>
-                <button className="headerBtn">Sign in / Register</button>
+                {/* <button className="headerBtn">Explore</button> */}
                 <div className="headerSearch">
                   <div className="headerSearchItem">
                     <FontAwesomeIcon icon={faBed} className="headerIcon"/>
