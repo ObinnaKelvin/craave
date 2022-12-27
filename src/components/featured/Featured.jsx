@@ -2,6 +2,7 @@ import "./featured.css"
 import aoNang from "../../images/aoNang.jpg"
 import bali from "../../images/bali.jpg"
 import puntaCana from "../../images/puntaCana.jpg"
+import mumbai from "../../images/bg2.jpg"
 import { useRef, useEffect, useState } from 'react'
 import {motion} from 'framer-motion';
 
@@ -26,6 +27,14 @@ const Featured = () => {
                     <div className="featureTitles">
                         <h1>Ao Nang, Thailand</h1>
                         <h2>103 properties</h2>
+                    </div>
+                </motion.div>
+                
+                <motion.div className="featuredItem">
+                    <img src={mumbai} alt="mumbai" className="featuredImg" />
+                    <div className="featureTitles">
+                        <h1>Mumbai, India</h1>
+                        <h2>427 properties</h2>
                     </div>
                 </motion.div>
 
