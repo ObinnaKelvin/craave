@@ -1,6 +1,6 @@
 import React,  { useState } from 'react'
 import './list.css'
-import NavBar from '../../components/navbar/Navbar.jsx';
+// import NavBar from '../../components/navbar/Navbar.jsx';
 import Header from '../../components/header/Header.jsx';
 import { useLocation } from 'react-router-dom';
 import { format } from 'date-fns'//transform the dates to readable formats
@@ -16,7 +16,7 @@ const List = () => {
   const [options, setOptions] = useState(location.state.options)
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <Header type="list"/>
       <div className="listContainer">
         <div className="listWrapper">
