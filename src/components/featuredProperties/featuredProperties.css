@@ -8,6 +8,19 @@
     gap: 20px;
 }
 
+.featuredp-carousel > .featuredp-inner-carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.featuredp-carousel {
+	cursor: grab;
+	overflow: hidden;
+	/*background-color: pink;*/
+}
+
 .fpItem {
     flex: 1;
     gap: 5px;
@@ -42,4 +55,20 @@
 
 .fpRating > span {
     font-size: 14px;
+}
+
+@media screen and (max-width:  480px) {
+
+    .featuredp-carousel > .featuredp-inner-carousel > .fpItem {
+		min-height: 6rem;
+		min-width: 10rem;
+    }
+
+    .featuredp-carousel > .featuredp-inner-carousel > .fpItem > .fpImage {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }    
+
+
 }
