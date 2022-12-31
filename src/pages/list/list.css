@@ -88,6 +88,10 @@
 
 @media screen and (max-width: 480px) {
 
+    .listContainer {
+        margin-top: -110px;
+    }
+
     .listWrapper {
         display: flex;
         flex-direction: column;
@@ -106,5 +110,15 @@
 
     .listSearch {
         position: relative;
+        /* position: sticky; */
+    }
+
+    .lsOptions {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .lsOptionItem {
+        flex-direction: column;
     }
 }

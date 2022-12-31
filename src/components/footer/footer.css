@@ -2,6 +2,7 @@
     width: 100%;
     max-width: 1024px;
     font-size: 12px;
+    margin-top: 40px;
 }
 
 .fLists {
@@ -16,12 +17,34 @@
 .fList {
     list-style: none;
     padding: 0px;
+    text-align: left;
+}
+
+.fList > .fHeaderText {
+    font-size: 15px;
+}
+
+.fLogo {
+    height: 100px;
+    margin: -50px 0px 10px -20px;
+
+}
+
+.fList span {
+    font-weight: bold;
+    font-size: 13px;
 }
 
 .fListItem {
     margin-bottom: 10px;
     color: #003580;
     cursor: pointer;
+    font-size: 15px;
+}
+
+.fText {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 
@@ -32,17 +55,28 @@
         align-items: center;
         padding: 10px;
     }
+
+    .fList > .fHeaderText {
+        font-size: 15px;
+    }
     .fLists {
         display: flex;
-        /* flex-direction: column; */
+        flex-direction: column;
     }
 
     .fList > .fListItem {
         align-items: center;
-        text-align: center;
+        text-align: left;
+        font-size: 15px;
+    }
+
+    .fList {
+        margin-bottom: 30px;
+        text-align: left;
     }
 
     .fText {
+        display: flex;
         text-align: center;
     }
 }

@@ -177,7 +177,7 @@
         margin-bottom: 100px;
     }
     .headerList {
-        visibility: hidden;
+        display: none; /*REmoves the element from the document*/
     }
 
     .headerTitle {
