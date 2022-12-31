@@ -23,3 +23,20 @@
     color: #003580;
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 480px) {
+    .fLists {
+        display: flex;
+        /* flex-direction: column; */
+    }
+
+    .fList > .fListItem {
+        align-items: center;
+        text-align: center;
+    }
+
+    .fText {
+        text-align: center;
+    }
+}

@@ -21,7 +21,7 @@
 	/*background-color: pink;*/
 }
 
-.fpItem {
+.featuredp-carousel > .featuredp-inner-carousel > .fpItem {
     flex: 1;
     gap: 5px;
     display: flex;
