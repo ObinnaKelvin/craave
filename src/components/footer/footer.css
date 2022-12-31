@@ -26,6 +26,12 @@
 
 
 @media screen and (max-width: 480px) {
+    .footer {
+        width: 95%;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
     .fLists {
         display: flex;
         /* flex-direction: column; */
