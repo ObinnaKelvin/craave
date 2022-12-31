@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     position: relative; /*Set Parent to relative before setting child "headerSearch" to absolute*/
+    /* border: 2px solid red; */
 }
 
 .headerContainer {

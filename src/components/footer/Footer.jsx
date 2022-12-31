@@ -5,16 +5,9 @@ function Footer() {
     <div className='footer'>
         <div className="fLists">
             <ul className="fList">
-                <li className="fListItem">Countries</li>
-                <li className="fListItem">Regions</li>
-                <li className="fListItem">Cities</li>
-                <li className="fListItem">District</li>
-                <li className="fListItem">Airports</li>
-                <li className="fListItem">Hotels</li>
-            </ul>
-            <ul className="fList">
-                <li className="fListItem">Countries</li>
-                <li className="fListItem">Regions</li>
+                {/* <strong>Support</strong> */}
+                <li className="fListItem">Help Center</li>
+                <li className="fListItem">COVID-19 Response</li>
                 <li className="fListItem">Cities</li>
                 <li className="fListItem">District</li>
                 <li className="fListItem">Airports</li>
