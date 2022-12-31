@@ -115,3 +115,31 @@
     cursor: pointer;
     border-radius: 5px;
 }
+
+
+@media screen and (max-width: 480px) {
+
+    .searchItem {
+        flex-wrap: wrap;
+    }
+    .searchItem img {
+        width: 100%;
+    }
+
+    .searchItem {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .freebies {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* border: 1px solid red; */
+    }
+
+    .freebies span {
+        width: fit-content;
+    }
+}

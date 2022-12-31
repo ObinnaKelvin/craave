@@ -84,3 +84,27 @@
 .listResult {
     flex: 3;
 }
+
+
+@media screen and (max-width: 480px) {
+
+    .listWrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    /* .listSearch > .lsItem {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    } */
+/* 
+    .listSearch div {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    } */
+
+    .listSearch {
+        position: relative;
+    }
+}
