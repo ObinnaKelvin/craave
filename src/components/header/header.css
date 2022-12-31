@@ -176,8 +176,10 @@
         /* margin-top: 100px; */
         margin-bottom: 100px;
     }
+
+
     .headerList {
-        display: none; /*REmoves the element from the document*/
+        display: none; /*Removes the element from the document*/
     }
 
     .headerTitle {

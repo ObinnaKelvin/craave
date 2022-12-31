@@ -10,3 +10,13 @@
     width: 1024px;
     font-size: 20px;
 }
+
+@media screen and (max-width: 480px) {
+    .homeTitle {
+        margin-top: 70px;
+        font-size: 22px;
+        /* border: 1px solid red; */
+        width: max-content;
+        /* display: none; */
+    }
+}
