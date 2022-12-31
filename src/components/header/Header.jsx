@@ -87,7 +87,7 @@ const Header = ({type}) => {
           <FontAwesomeIcon icon={faBed} />
           <span>Stays</span>
           </div> */}
-        </div>.
+        </div>
         { type !== "list" &&
             <>
                 <h1 className="headerTitle">A lifetime of discounts? It's Genius</h1>

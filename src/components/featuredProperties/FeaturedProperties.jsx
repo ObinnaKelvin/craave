@@ -12,10 +12,10 @@ const FeaturedProperties = () => {
     
     const [width, setWidth] = useState(0);
     const carousel = useRef();
-    // useEffect(() => {
-    //     console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
-    //     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    // }, []);
+    useEffect(() => {
+        console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
+        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    }, []);
 
 
 
