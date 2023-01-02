@@ -8,6 +8,7 @@ import {useState, useEffect, useRef } from 'react'
 import { format } from 'date-fns'//transform the dates to readable formats
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
+import Typical from 'react-typical'
 
 const Header = ({type}) => {
   const [destination, setDestination] = useState("");
@@ -89,7 +90,15 @@ const Header = ({type}) => {
           </div> */}
         </div>
         { type !== "list" &&
-            <>
+            <>  
+                <div className="typical">
+                    <Typical
+                      steps={['Travel...', 2000, 'Holiday...', 2000, 'Vacation...', 2000, 'Honeymoon...', 2000, 'Tourism...', 2000]}
+                      loop={Infinity}
+                      wrapper="p"
+                    />
+                </div>
+
                 <h1 className="headerTitle">A lifetime of discounts? It's Genius</h1>
                 <p className="headerDesc">
                   Get rewarded for your travels - unlock instant savings of 10% or more with a 
