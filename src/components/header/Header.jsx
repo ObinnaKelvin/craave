@@ -8,6 +8,8 @@ import {useState, useEffect, useRef } from 'react'
 import { format } from 'date-fns'//transform the dates to readable formats
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
+// import Typical from 'react-typical'
+import Typewriter from 'typewriter-effect';
 
 const Header = ({type}) => {
   const [destination, setDestination] = useState("");
@@ -89,7 +91,33 @@ const Header = ({type}) => {
           </div> */}
         </div>
         { type !== "list" &&
-            <>
+            <>  
+                <div className="typical">
+                    {/* <Typical
+                      steps={['Travel...', 2000, 'Holiday...', 2000, 'Vacation...', 2000, 'Honeymoon...', 2000, 'Tourism...', 2000]}
+                      loop={Infinity}
+                      wrapper="p"
+                    /> */}
+                    <Typewriter 
+                        onInit={(typewriter) => {
+                          typewriter.typeString('Travel...').callFunction(() => {console.log('String typed out!');})
+                            .pauseFor(2000)
+                            .deleteAll()
+                            .callFunction(() => {console.log('All strings were deleted');})
+                            .typeString('Holiday...').pauseFor(2000).deleteAll()
+                            .typeString('Vacation...').pauseFor(2000).deleteAll()
+                            .typeString('Honeymoon...').pauseFor(2000).deleteAll()
+                            .typeString('Tourism...').pauseFor(2000).deleteAll()
+                            .start();
+                        }}  
+                        options={{
+                          // strings: ['Hello', 'World'],
+                          autoStart: true,
+                          loop: true,
+                        }}                   
+                    />
+                </div>
+
                 <h1 className="headerTitle">A lifetime of discounts? It's Genius</h1>
                 <p className="headerDesc">
                   Get rewarded for your travels - unlock instant savings of 10% or more with a 
