@@ -8,7 +8,8 @@ import {useState, useEffect, useRef } from 'react'
 import { format } from 'date-fns'//transform the dates to readable formats
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
-import Typical from 'react-typical'
+// import Typical from 'react-typical'
+import Typewriter from 'typewriter-effect';
 
 const Header = ({type}) => {
   const [destination, setDestination] = useState("");
@@ -92,10 +93,28 @@ const Header = ({type}) => {
         { type !== "list" &&
             <>  
                 <div className="typical">
-                    <Typical
+                    {/* <Typical
                       steps={['Travel...', 2000, 'Holiday...', 2000, 'Vacation...', 2000, 'Honeymoon...', 2000, 'Tourism...', 2000]}
                       loop={Infinity}
                       wrapper="p"
+                    /> */}
+                    <Typewriter 
+                        onInit={(typewriter) => {
+                          typewriter.typeString('Travel...').callFunction(() => {console.log('String typed out!');})
+                            .pauseFor(2000)
+                            .deleteAll()
+                            .callFunction(() => {console.log('All strings were deleted');})
+                            .typeString('Holiday...').pauseFor(2000).deleteAll()
+                            .typeString('Vacation...').pauseFor(2000).deleteAll()
+                            .typeString('Honeymoon...').pauseFor(2000).deleteAll()
+                            .typeString('Tourism...').pauseFor(2000).deleteAll()
+                            .start();
+                        }}  
+                        options={{
+                          // strings: ['Hello', 'World'],
+                          autoStart: true,
+                          loop: true,
+                        }}                   
                     />
                 </div>
 
